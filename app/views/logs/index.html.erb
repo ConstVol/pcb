@@ -1,0 +1,21 @@
+<h1>Logs</h1>
+
+<table>
+  <tr>
+    <th>Level</th>
+    <th>Receipt Time</th>
+    <th>Question</th>
+    <th>Response Time</th>
+    <th>Answer</th>
+  </tr>
+
+  <% @logs.each do |log| %>
+      <tr>
+        <td><%= log.level %></td>
+        <td><%= log.receipt_time %></td>
+        <td><%= log.question %></td>
+        <td><%= log.response_time %></td>
+        <td><%= log.answer %></td>
+      </tr>
+  <% end %>
+</table>
