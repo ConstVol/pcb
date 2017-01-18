@@ -9,7 +9,7 @@ class Seventh_Solution
     answer = ''
     length = anagram.length
     if ANAGRAMS_OF_LINES.key? length
-      answer = ANAGRAMS_OF_LINES[length][anagram] if ANAGRAMS_OF_LINES[length][num_of_words].key? anagram
+      answer = ANAGRAMS_OF_LINES[length][anagram] if ANAGRAMS_OF_LINES[length].key? anagram
     end
     answer
   end

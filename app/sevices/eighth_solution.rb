@@ -7,18 +7,18 @@ class Eighth_Solution
   end
 
   def get_lines(angram)
+    answer = ''
     line_length = angram.length
     if ANAGRAMS_OF_LINES.key?(line_length)
-        ANAGRAMS_OF_LINES[line_length].each_key do |key|
-          intersection = angram - key
-          intersection.length
-          if intersection.length == 1
-            return  ANAGRAMS_OF_LINES[line_length][num_of_words][key]
-          end
+      ANAGRAMS_OF_LINES[line_length].each_key do |key|
+        intersection = angram - key
+        intersection.length
+        if intersection.length == 1
+          answer = ANAGRAMS_OF_LINES[line_length][key]
+          return answer
         end
-        return "My bad"
-    else
-      return "Can't help you"
+      end
     end
+    answer
   end
 end

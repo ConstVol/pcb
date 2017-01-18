@@ -37,7 +37,7 @@ class QuizController < ApplicationController
 
     end
     p answer
-    #Log.new( level: level, receipt_time: receipt_time, question: question, response_time: response_time, answer: answer).save
+    Log.new(question: question, receipt_time: receipt_time, level: level.to_s, answer: answer.to_s, response_time: response_time).save
 
   end
 end
