@@ -1,6 +1,6 @@
 class First_Solution #MAKE IT BETTER!!!!
 
-  def get_title_v2(line)
+  def get_title(line)
     answer = ''
     words = line.gsub(/[^\s[a-zA-Zа-яА-Я]]/, '').split(' ')
     line_length = words.length.to_s
@@ -37,7 +37,7 @@ class First_Solution #MAKE IT BETTER!!!!
     answer
   end
 
-  def get_title(line)
+  def get_title_v3(line)
     answer = ''
     line = line.gsub(/\d+/, '')
     line = line.gsub('........................................................', '')
