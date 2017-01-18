@@ -15,7 +15,6 @@ class Eighth_Solution
         ANAGRAMS_OF_LINES[line_length][num_of_words].each_key do |key|
           intersection = angram - key
           intersection.length
-          p intersection.length if intersection.length < 3
           if intersection.length == 1
             return  ANAGRAMS_OF_LINES[line_length][num_of_words][key]
           end

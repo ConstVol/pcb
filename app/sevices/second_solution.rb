@@ -20,20 +20,23 @@ class Second_Solution
       end
     end
 
-    title_picks = WORDS_POPULARITY[key_word]
+    if WORDS_POPULARITY.key? key_word
+      title_picks = WORDS_POPULARITY[key_word]
 
-    title_picks.each do |title|
-      if CLEAN_PUSHKIN[title].key? line_length
-        CLEAN_PUSHKIN[title][line_length].each_key do |key_line|
-          intersection = key_line & words
-          if intersection.length < line_length.to_i && intersection.length == line_length.to_i - 1
-            missing_word = key_line - intersection
-            answer = missing_word[0]
+      title_picks.each do |title|
+        if CLEAN_PUSHKIN[title].key? line_length
+          CLEAN_PUSHKIN[title][line_length].each_key do |key_line|
+            intersection = key_line & words
+            if intersection.length < line_length.to_i && intersection.length == line_length.to_i - 1
+              missing_word = key_line - intersection
+              answer = missing_word[0]
 
-            return answer
+              return answer
+            end
           end
         end
       end
     end
+    answer
   end
 end

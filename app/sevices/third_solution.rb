@@ -1,23 +1,30 @@
 class Third_Solution
   def get_answer(line)
+    answer = ''
     lines = line.split("\n")
     first_words = parse_line lines[0]
     second_words = parse_line lines[1]
 
     key_word = check_pop first_words
+    if WORDS_POPULARITY.key? key_word
+      title_picks = WORDS_POPULARITY[key_word]
 
-    title_picks = WORDS_POPULARITY[key_word]
+      first_and_title = find_word first_words, title_picks
+      if first_and_title.any?
+        fist_word = first_and_title[0]
+        title = []
+        title.push first_and_title[1]
 
-    first_and_title = find_word first_words, title_picks
-    fist_word = first_and_title[0]
-    title = []
-    title.push first_and_title[1]
 
+        second =  find_word second_words, title
+          if second.any?
+            second_word = second[0]
 
-    second =  find_word second_words, title
-    second_word = second[0]
-
-    answer = "#{fist_word}, #{second_word}"
+            answer = "#{fist_word}, #{second_word}"
+          end
+      end
+    end
+    answer
   end
 
   def parse_line(line)
@@ -28,6 +35,7 @@ class Third_Solution
     key_word = ''
     first_length = 999
     second_length = 0
+
     words.each do |word|
       if WORDS_POPULARITY.key? word
         second_length = WORDS_POPULARITY[word].length
@@ -57,6 +65,6 @@ class Third_Solution
         end
       end
     end
-
+    answer
   end
 end

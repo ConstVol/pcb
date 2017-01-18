@@ -10,42 +10,46 @@ class Fifth_Solution
 
     key_words = []
     key_words = check_pop words
-    p key_words
-    first_key = key_words[0]
-    second_key = key_words[1]
+    if key_words.any?
+      first_key = key_words[0]
+      second_key = key_words[1]
+      if WORDS_POPULARITY.key? first_key
+        title_picks = WORDS_POPULARITY[first_key]
 
-    title_picks = WORDS_POPULARITY[first_key]
+        word_and_line = []
+        word_and_line = find_word_and_line words, title_picks
 
-    word_and_line = []
-    word_and_line = find_word_and_line words, title_picks
+        if word_and_line == []
+          if WORDS_POPULARITY.key? second_key
+            title_picks = WORDS_POPULARITY[second_key]
 
-    if word_and_line == []
+            word_and_line = find_word_and_line words, title_picks
+            if word_and_line.any?
+              word = word_and_line[0]
+              needed_line = word_and_line[1]
 
-      title_picks = WORDS_POPULARITY[second_key]
+              replaced = words - needed_line
+              replaced_word = replaced[0]
 
-      word_and_line = find_word_and_line words, title_picks
-      word = word_and_line[0]
-      needed_line = word_and_line[1]
+              answer = "#{word}, #{replaced_word}"
 
-      replaced = words - needed_line
-      replaced_word = replaced[0]
+              return answer
+            end
+          end
+        else
+          word = word_and_line[0]
+          needed_line = word_and_line[1]
 
-      answer = "#{word}, #{replaced_word}"
+          replaced = words - needed_line
+          replaced_word = replaced[0]
 
-      return answer
+          answer = "#{word}, #{replaced_word}"
 
-    else
-      word = word_and_line[0]
-      needed_line = word_and_line[1]
-
-      replaced = words - needed_line
-      replaced_word = replaced[0]
-
-      answer = "#{word}, #{replaced_word}"
-
-      return answer
-
+          return answer
+        end
+      end
     end
+    answer
   end
 
   def check_pop(words)

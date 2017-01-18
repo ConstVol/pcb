@@ -4,27 +4,24 @@ class Sixth_Solution
   end
   def get_answer(line)
     answer = ''
-    p "line = #{line}"
-
     line_of_anagrams = parse_line(line)
-
-    puts "line_of_anagrams = #{line_of_anagrams}"
     line_length = line_of_anagrams.length.to_s
-
     lines = get_lines (line_of_anagrams)
     p lines
 
     lines.each do |lline|
 
       key_word = @third.check_pop(lline)
-      title_picks = WORDS_POPULARITY[key_word]
-      line_num_and_title = get_line_number_and_title(lline, title_picks, line_length)
-      puts "line_num_and_title = #{line_num_and_title}"
-      unless line_num_and_title[0] == ''
-        title = line_num_and_title.pop
-        line_num = line_num_and_title.pop
-        answer = DIRTY_PUSHKIN[title][line_num]
-        return answer
+      if WORDS_POPULARITY.key? key_word
+        title_picks = WORDS_POPULARITY[key_word]
+        line_num_and_title = get_line_number_and_title(lline, title_picks, line_length)
+        puts "line_num_and_title = #{line_num_and_title}"
+        unless line_num_and_title[0] == ''
+          title = line_num_and_title.pop
+          line_num = line_num_and_title.pop
+          answer = DIRTY_PUSHKIN[title][line_num]
+          return answer
+        end
       end
     end
     "Give me Pushkin's line"

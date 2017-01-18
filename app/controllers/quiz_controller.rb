@@ -25,7 +25,7 @@ class QuizController < ApplicationController
             task_id: params[:id]
         }
         Net::HTTP.post_form(uri, parameters)
-        Log.new( level: level, receipt_time: receipt_time, question: question, response_time: response_time, answer: answ).save
+
       end
     else
       parameters = {
@@ -34,10 +34,9 @@ class QuizController < ApplicationController
           task_id: params[:id]
       }
       Net::HTTP.post_form(uri, parameters)
-      Log.new( level: level, receipt_time: receipt_time, question: question, response_time: response_time, answer: answer).save
+
     end
+    Log.new( level: level, receipt_time: receipt_time, question: question, response_time: response_time, answer: answer).save
 
-
-    render plain: params[:quiz].inspect
   end
 end
