@@ -34,6 +34,7 @@ class First_Solution #MAKE IT BETTER!!!!
         end
       end
     end
+    answer = answer.gsub(/\d+/, '')
     answer
   end
 

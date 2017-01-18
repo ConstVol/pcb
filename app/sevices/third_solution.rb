@@ -20,7 +20,7 @@ class Third_Solution
           if second.any?
             second_word = second[0]
 
-            answer = "#{fist_word}, #{second_word}"
+            answer = "#{fist_word},#{second_word}"
           end
       end
     end

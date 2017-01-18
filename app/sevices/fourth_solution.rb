@@ -28,7 +28,7 @@ class Fourth_Solution
           third = @third.find_word third_words, title
           third_word = third[0]
 
-          answer = "#{fist_word}, #{second_word}, #{third_word}"
+          answer = "#{fist_word},#{second_word},#{third_word}"
         end
       end
     end

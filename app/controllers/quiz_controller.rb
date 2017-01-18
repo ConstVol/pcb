@@ -36,6 +36,7 @@ class QuizController < ApplicationController
       Net::HTTP.post_form(uri, parameters)
 
     end
+    p answer
     #Log.new( level: level, receipt_time: receipt_time, question: question, response_time: response_time, answer: answer).save
 
   end

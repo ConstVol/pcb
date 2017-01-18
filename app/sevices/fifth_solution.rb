@@ -31,7 +31,7 @@ class Fifth_Solution
               replaced = words - needed_line
               replaced_word = replaced[0]
 
-              answer = "#{word}, #{replaced_word}"
+              answer = "#{word},#{replaced_word}"
 
               return answer
             end
@@ -43,7 +43,7 @@ class Fifth_Solution
           replaced = words - needed_line
           replaced_word = replaced[0]
 
-          answer = "#{word}, #{replaced_word}"
+          answer = "#{word},#{replaced_word}"
 
           return answer
         end
