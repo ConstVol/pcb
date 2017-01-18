@@ -38,6 +38,6 @@ class QuizController < ApplicationController
     end
     p answer
     Log.new(question: question, receipt_time: receipt_time, level: level.to_s, answer: answer.to_s, response_time: response_time).save
-
+    render plain: params[:quiz].inspect
   end
 end
