@@ -12,8 +12,8 @@ class Eighth_Solution
     if ANAGRAMS_OF_LINES.key?(line_length)
       ANAGRAMS_OF_LINES[line_length].each_key do |key|
         intersection = angram - key
-        intersection.length
-        if intersection.length == 1
+        diff = intersection.length
+        if diff == 1
           answer = ANAGRAMS_OF_LINES[line_length][key]
           return answer
         end
