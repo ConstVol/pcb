@@ -19,8 +19,12 @@ class Sixth_Solution
         unless line_num_and_title[0] == ''
           title = line_num_and_title.pop
           line_num = line_num_and_title.pop
-          answer = DIRTY_PUSHKIN[title][line_num]
-          return answer
+          if DIRTY_PUSHKIN.key? title
+            if DIRTY_PUSHKIN[title].key? line_num
+              answer = DIRTY_PUSHKIN[title][line_num]
+              return answer
+            end
+          end
         end
       end
     end
@@ -84,9 +88,13 @@ class Sixth_Solution
     key_title = ''
     line_num_and_title = []
     title_picks.each do |title|
-      if CLEAN_PUSHKIN[title][line_length].key? words
-        line_num = CLEAN_PUSHKIN[title][line_length][words]
-        key_title = title
+      if CLEAN_PUSHKIN.key? title
+        if CLEAN_PUSHKIN[title].key? line_length
+          if CLEAN_PUSHKIN[title][line_length].key? words
+            line_num = CLEAN_PUSHKIN[title][line_length][words]
+            key_title = title
+          end
+        end
       end
     end
     line_num_and_title.push(line_num, key_title)

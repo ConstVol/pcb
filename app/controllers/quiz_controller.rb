@@ -4,7 +4,7 @@ class QuizController < ApplicationController
   end
 
   def solve
-    uri = URI("http://pushkin.rubyroidlas.com/quiz")
+    uri = URI("http://pushkin.rubyroidlabs.com/quiz")
     @solver = Solver.new
     receipt_time = Time.new.to_s[0..-6]
     question = params[:question]
@@ -36,7 +36,7 @@ class QuizController < ApplicationController
       Net::HTTP.post_form(uri, parameters)
 
     end
-    Log.new( level: level, receipt_time: receipt_time, question: question, response_time: response_time, answer: answer).save
+    #Log.new( level: level, receipt_time: receipt_time, question: question, response_time: response_time, answer: answer).save
 
   end
 end
